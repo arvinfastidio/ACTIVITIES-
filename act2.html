@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Toggle Text and Change Button Color</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #text {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        #changeTextButton {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="text">Click this button to change this text</div>
+    <button id="changeTextButton">Change Text</button>
+
+    <script>
+        var button = document.getElementById('changeTextButton');
+        var text = document.getElementById('text');
+        var isOriginalText = true; 
+
+        function getRandomColor() {
+            return '#' + Math.floor(Math.random() * 16777215).toString(16);
+        }
+
+        button.addEventListener('click', function() {
+            if (isOriginalText) {
+                text.innerText = 'The text has been changed!';
+            } else {
+                text.innerText = 'Click this button to change this text';
+            }
+            isOriginalText = (isOriginalText === false); 
+            button.style.backgroundColor = getRandomColor();
+        });
+    </script>
+
+</body>
+</html>
